@@ -507,7 +507,9 @@ p {
 
 .spline-scene {
   z-index: -1;
+  opacity: 1;
   filter: hue-rotate(308deg);
+  display: none;
   position: fixed;
   top: 0%;
   bottom: 0%;
@@ -644,6 +646,10 @@ p {
 
 .logo-image._2 {
   height: 6rem;
+}
+
+.body {
+  background-color: #e2f1ff;
 }
 
 @media screen and (max-width: 991px) {
