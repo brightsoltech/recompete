@@ -1206,14 +1206,48 @@
     }
   });
 
+  // node_modules/@babel/runtime/helpers/interopRequireDefault.js
+  var require_interopRequireDefault = __commonJS({
+    "node_modules/@babel/runtime/helpers/interopRequireDefault.js"(exports, module) {
+      function _interopRequireDefault(obj) {
+        return obj && obj.__esModule ? obj : {
+          "default": obj
+        };
+      }
+      module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    }
+  });
+
+  // node_modules/@babel/runtime/helpers/defineProperty.js
+  var require_defineProperty = __commonJS({
+    "node_modules/@babel/runtime/helpers/defineProperty.js"(exports, module) {
+      function _defineProperty(obj, key, value) {
+        if (key in obj) {
+          Object.defineProperty(obj, key, {
+            value,
+            enumerable: true,
+            configurable: true,
+            writable: true
+          });
+        } else {
+          obj[key] = value;
+        }
+        return obj;
+      }
+      module.exports = _defineProperty, module.exports.__esModule = true, module.exports["default"] = module.exports;
+    }
+  });
+
   // packages/shared/render/plugins/Animation/modules/SplineSiteModule.js
   var require_SplineSiteModule = __commonJS({
     "packages/shared/render/plugins/Animation/modules/SplineSiteModule.js"(exports) {
       "use strict";
+      var _interopRequireDefault = require_interopRequireDefault().default;
       Object.defineProperty(exports, "__esModule", {
         value: true
       });
       exports.setLoadHandler = exports.ready = exports.init = exports.getInstance = exports.destroyInstance = exports.destroy = exports.createInstance = void 0;
+      var _defineProperty2 = _interopRequireDefault(require_defineProperty());
       var SplineApp;
       async function importSplineRuntime() {
         const {
@@ -1228,13 +1262,17 @@
       var callbacks = /* @__PURE__ */ new Map();
       var loadEvent = new Event("w-spline-load");
       var SplineInstance = class {
+        constructor() {
+          (0, _defineProperty2.default)(this, "spline", void 0);
+          (0, _defineProperty2.default)(this, "container", void 0);
+        }
         destroy() {
           var _this$spline, _this$spline$dispose;
           if (this.container) {
             cache.delete(this.container);
             callbacks.delete(this.container);
           }
-          (_this$spline = this.spline) === null || _this$spline === void 0 ? void 0 : (_this$spline$dispose = _this$spline.dispose) === null || _this$spline$dispose === void 0 ? void 0 : _this$spline$dispose.call(_this$spline);
+          (_this$spline = this.spline) === null || _this$spline === void 0 || (_this$spline$dispose = _this$spline.dispose) === null || _this$spline$dispose === void 0 ? void 0 : _this$spline$dispose.call(_this$spline);
         }
         async load(container, scene) {
           if (!SplineApp) {
@@ -1735,18 +1773,6 @@
         return newObj;
       }
       module.exports = _interopRequireWildcard, module.exports.__esModule = true, module.exports["default"] = module.exports;
-    }
-  });
-
-  // node_modules/@babel/runtime/helpers/interopRequireDefault.js
-  var require_interopRequireDefault = __commonJS({
-    "node_modules/@babel/runtime/helpers/interopRequireDefault.js"(exports, module) {
-      function _interopRequireDefault(obj) {
-        return obj && obj.__esModule ? obj : {
-          "default": obj
-        };
-      }
-      module.exports = _interopRequireDefault, module.exports.__esModule = true, module.exports["default"] = module.exports;
     }
   });
 
@@ -7069,8 +7095,8 @@
       };
       exports.getPluginDestination = getPluginDestination2;
       var createPluginInstance3 = (element, actionItem) => {
-        var _actionItem$config, _actionItem$config$ta;
-        const pluginElementId = actionItem === null || actionItem === void 0 ? void 0 : (_actionItem$config = actionItem.config) === null || _actionItem$config === void 0 ? void 0 : (_actionItem$config$ta = _actionItem$config.target) === null || _actionItem$config$ta === void 0 ? void 0 : _actionItem$config$ta.pluginElement;
+        var _actionItem$config;
+        const pluginElementId = actionItem === null || actionItem === void 0 || (_actionItem$config = actionItem.config) === null || _actionItem$config === void 0 || (_actionItem$config = _actionItem$config.target) === null || _actionItem$config === void 0 ? void 0 : _actionItem$config.pluginElement;
         return pluginElementId ? queryContainerElement(pluginElementId) : null;
       };
       exports.createPluginInstance = createPluginInstance3;
@@ -9152,7 +9178,7 @@
   });
 
   // node_modules/lodash/_defineProperty.js
-  var require_defineProperty = __commonJS({
+  var require_defineProperty2 = __commonJS({
     "node_modules/lodash/_defineProperty.js"(exports, module) {
       var getNative = require_getNative();
       var defineProperty = function() {
@@ -9170,7 +9196,7 @@
   // node_modules/lodash/_baseAssignValue.js
   var require_baseAssignValue = __commonJS({
     "node_modules/lodash/_baseAssignValue.js"(exports, module) {
-      var defineProperty = require_defineProperty();
+      var defineProperty = require_defineProperty2();
       function baseAssignValue(object, key, value) {
         if (key == "__proto__" && defineProperty) {
           defineProperty(object, key, {
@@ -10120,7 +10146,7 @@
   var require_baseSetToString = __commonJS({
     "node_modules/lodash/_baseSetToString.js"(exports, module) {
       var constant = require_constant();
-      var defineProperty = require_defineProperty();
+      var defineProperty = require_defineProperty2();
       var identity = require_identity();
       var baseSetToString = !defineProperty ? identity : function(func, string) {
         return defineProperty(func, "toString", {
@@ -12803,20 +12829,6 @@
  */
 /*!
  * Webflow._ (aka) Underscore.js 1.6.0 (custom build)
- * _.each
- * _.map
- * _.find
- * _.filter
- * _.any
- * _.contains
- * _.delay
- * _.defer
- * _.throttle (webflow)
- * _.debounce
- * _.keys
- * _.has
- * _.now
- * _.template (webflow: upgraded to 1.13.6)
  *
  * http://underscorejs.org
  * (c) 2009-2013 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors

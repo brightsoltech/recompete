@@ -170,7 +170,9 @@ p {
 }
 
 .button.w--current {
-  background-image: linear-gradient(to bottom, #0c68b3, var(--primary600));
+  background-image: linear-gradient(180deg, #0c68b3, var(--primary600));
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
